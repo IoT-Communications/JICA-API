@@ -1,0 +1,29 @@
+scalar Date
+scalar Upload
+
+type Query {
+  me: User
+}
+
+type Mutation {
+  register(username: String! email: String! password: String! fcmToken: String): Response
+  login(email: String!, password: String!, fcmToken: String): Response
+}
+
+type User {
+  id: String
+  username: String
+  email: String
+  fcmToken: String
+}
+
+type Error {
+  path: String
+  message: String
+}
+
+type Response {
+  error: Error
+  token: String
+}
+

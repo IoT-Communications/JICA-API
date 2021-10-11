@@ -1,41 +1,58 @@
 {
-  "name": "graphql-auth",
-  "license": "MIT",
-  "scripts": {
-    "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server",
-    "start": "node dist/server",
-    "clean": "rm -rf dist",
-    "build": "npm -s run clean && npm -s run generate && tsc",
-    "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
-    "generate:prisma": "prisma generate",
-    "generate:nexus": "ts-node --transpile-only src/schema"
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all"
+  "name": "jica-server",
+  "version": "0.0.1",
+  "description": "jica server for jica application.",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/dotenv": "^6.1.1",
+    "@types/graphql-upload": "^8.0.4",
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/lodash": "^4.14.122",
+    "@types/node": "^10.12.18",
+    "ts-node": "^10.2.1",
+    "typescript": "^3.9.10"
   },
   "dependencies": {
-    "@prisma/client": "3.0.2",
-    "apollo-server": "3.3.0",
-    "bcryptjs": "2.4.3",
-    "graphql": "15.5.3",
-    "graphql-middleware": "6.1.6",
-    "graphql-scalars": "1.10.1",
-    "graphql-shield": "7.5.0",
-    "jsonwebtoken": "8.5.1",
-    "nexus": "1.1.0"
+    "@google-cloud/storage": "^5.3.0",
+    "apollo-server-express": "^2.24.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "fcm-node": "^1.6.1",
+    "graphql": "^14.7.0",
+    "graphql-import": "^0.7.1",
+    "graphql-upload": "^11.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mkdirp": "^1.0.4",
+    "mysql": "^2.18.1",
+    "node-env": "^0.1.6",
+    "nodemailer": "^6.6.0",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.10",
+    "shortid": "^2.2.15",
+    "typeorm": "^0.2.38"
   },
-  "devDependencies": {
-    "@types/bcryptjs": "2.4.2",
-    "@types/jsonwebtoken": "8.5.5",
-    "@types/node": "14.17.15",
-    "prisma": "3.0.2",
-    "ts-node": "10.2.1",
-    "ts-node-dev": "1.1.8",
-    "typescript": "4.4.2"
+  "scripts": {
+    "start": "NODE_ENV=development&& nodemon --exec ts-node src/index.ts",
+    "build": "tsc -b"
   },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "resolutions": {
+    "fs-capacitor": "^6.2.0",
+    "graphql-upload": "^11.0.0"
   }
 }

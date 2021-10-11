@@ -1,10 +1,17 @@
 {
   "compilerOptions": {
+    "lib": ["es5", "es6"],
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./build",
+    "experimentalDecorators": true,
     "esModuleInterop": true,
-    "outDir": "dist",
     "rootDir": "src",
-    "lib": ["esnext"],
-    "strict": true
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"]
 }
