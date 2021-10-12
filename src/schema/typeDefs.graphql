@@ -3,11 +3,14 @@ scalar Upload
 
 type Query {
   me: User
+  getDeviceLocations: DeviceLocationResponse
+  login(email: String! password: String! fcmToken: String): Response
 }
 
 type Mutation {
+  
   register(username: String! email: String! password: String! fcmToken: String): Response
-  login(email: String!, password: String!, fcmToken: String): Response
+  
 }
 
 type User {
@@ -15,6 +18,15 @@ type User {
   username: String
   email: String
   fcmToken: String
+}
+
+type DeviceLocation {
+  id: Int
+  deviceID: String
+  latitude: Float
+  longitude: Float
+  status: String
+  timestamp: Date
 }
 
 type Error {
@@ -25,5 +37,10 @@ type Error {
 type Response {
   error: Error
   token: String
+}
+
+type DeviceLocationResponse {
+  error: Error
+  deviceLocations: [DeviceLocation]
 }
 

@@ -74,9 +74,7 @@ const getUser = async (token: string) => {
   const userId = decode(jwt);
   if (!Bearer || !userId) return null;
   //@ts-ignore
-  const user = await User.findOne(userId.id,{
-    relations:['profile']
-  });
+  const user = await User.findOne(userId.id);
   return user;
 };
 

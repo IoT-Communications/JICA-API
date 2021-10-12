@@ -11,15 +11,15 @@ import {
 } from '../../config/errorMessages';
 import User from '../../entities/User';
 
-var nodemailer = require('nodemailer');
 
 const resolvers = {
   Query: {
     me,
+    login,
   },
   Mutation: {
     register,
-    login,
+    
   },
 };
 
@@ -72,6 +72,7 @@ async function register(_: any, { email, username, password, fcmToken }: any) {
 /* ------------------------LOGIN------------------------------- */
 async function login(_: any, { email, password, fcmToken }: any) {
 
+  console.log('logging in...')
   const userExist = await User.findOne({
     where: {
       email: email,

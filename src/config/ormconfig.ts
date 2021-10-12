@@ -1,4 +1,5 @@
 import { ConnectionOptions } from 'typeorm';
+import DeviceLocation from '../entities/DeviceLocation';
 import User from '../entities/User'
 
 const docker = {
@@ -31,6 +32,7 @@ export const dbconfig: ConnectionOptions = {
     logging: false,
     entities: [
         User,
+        DeviceLocation,
     ],
     dropSchema: false,
     migrations: ['src/migration/**/*.ts'],
