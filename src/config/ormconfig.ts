@@ -13,7 +13,7 @@ const docker = {
 const dev = {
     host: 'localhost',
     port: 3306,
-    username: 'jica',
+    username: 'root',
     password: '54646673@More',
     database: 'jica',
 };
