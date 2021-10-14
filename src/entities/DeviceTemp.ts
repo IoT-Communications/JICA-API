@@ -3,28 +3,23 @@ import {
     Column,
     Entity,
     PrimaryGeneratedColumn,
-  } from 'typeorm';
-  
-  
-  
-  @Entity('DEVICE_GPS_LOCATION')
-  export default class DeviceLocation extends BaseEntity {
+} from 'typeorm';
+
+
+@Entity('DEVICE_TEMPERATURE')
+export default class DeviceTemperature extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
     id!: string;
 
     @Column('varchar',{ length: 16,})
     deviceID!: String;
-  
+
     @Column('double')
-    latitude!: string;
-  
+    skinTemp!: string;
+
     @Column('double')
-    longitude!: string;
-  
-    @Column('varchar',{ length: 15,})
-    status!: string;
-  
+    bodyTemp!: string;
+
     @Column("datetime")
     timestamp!: string;
-  }
-  
+}

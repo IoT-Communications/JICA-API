@@ -5,6 +5,14 @@ type Query {
   me: User
   getDeviceLocations: DeviceLocationResponse
   login(email: String! password: String! fcmToken: String): Response
+  getDeviceTemperatures: DeviceTempResponse
+  getDeviceTemperature(deviceID: String!): DeviceTempResponse
+  getDeviceHealths: DeviceHealthResponse
+  getDeviceHealth(deviceID: String!): DeviceHealthResponse
+  getDeviceBatteries: DeviceBatteryResponse
+  getDeviceBattery(deviceID: String!): DeviceBatteryResponse
+  getDeviceAlarms: DeviceAlarmResponse
+  getDeviceAlarm(deviceID: String!): DeviceAlarmResponse
 }
 
 type Mutation {
@@ -29,6 +37,39 @@ type DeviceLocation {
   timestamp: Date
 }
 
+type DeviceAlarm {
+  id: Int
+  deviceID: String
+  state: String
+  timestamp: Date
+}
+
+type DeviceBattery {
+  id: Int
+  deviceID: String
+  batteryVoltage: Int
+  stepNum: Int
+  signalStrength: Int
+  timestamp: Date
+}
+
+type DeviceHealth {
+  id: Int
+  deviceID: String
+  bpHigh: Int
+  bpLow: Int
+  heartRate: Int
+  timestamp: Date
+}
+
+type DeviceTemp {
+  id: Int
+  deviceID: String
+  skinTemp: Float
+  bodyTemp: Float
+  timestamp: Date
+}
+
 type Error {
   path: String
   message: String
@@ -42,5 +83,25 @@ type Response {
 type DeviceLocationResponse {
   error: Error
   deviceLocations: [DeviceLocation]
+}
+
+type DeviceBatteryResponse {
+  error: Error
+  deviceBatteries: [DeviceBattery]
+}
+
+type DeviceAlarmResponse {
+  error: Error
+  deviceAlarm: [DeviceAlarm]
+}
+
+type DeviceHealthResponse {
+  error: Error
+  deviceHealth: [DeviceHealth]
+}
+
+type DeviceTempResponse {
+  error: Error
+  deviceTemp: [DeviceTemp]
 }
 
