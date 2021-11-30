@@ -13,6 +13,8 @@ type Query {
   getDeviceBattery(deviceID: String!): DeviceBatteryResponse
   getDeviceAlarms: DeviceAlarmResponse
   getDeviceAlarm(deviceID: String!): DeviceAlarmResponse
+  getDevices: DeviceResponse
+  getDevice(deviceID: String!): DeviceResponse
 }
 
 type Mutation {
@@ -27,6 +29,15 @@ type User {
   email: String
   fcmToken: String
 }
+
+
+type Device {
+  deviceID: String
+  name: String
+  type: String
+  firmware: String
+}
+
 
 type DeviceLocation {
   id: Int
@@ -78,6 +89,12 @@ type Error {
 type Response {
   error: Error
   token: String
+}
+
+
+type DeviceResponse {
+  error: Error
+  device: [Device]
 }
 
 type DeviceLocationResponse {
