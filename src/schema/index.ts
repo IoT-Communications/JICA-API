@@ -7,6 +7,7 @@ import deviceTempResolver from './resolvers/deviceTempResolver'
 import deviceAlarmResolver from './resolvers/deviceAlarmResolver'
 import deviceBatteryResolver from './resolvers/deviceBatteryResolver'
 import deviceHealthResolver from './resolvers/deviceHealthResolver'
+import deviceResolver from './resolvers/deviceResolver'
 
 const typeDefs = importSchema(`${__dirname}/typeDefs.graphql`);
 
@@ -18,6 +19,7 @@ const resolvers = {
     ...deviceAlarmResolver.Query,
     ...deviceBatteryResolver.Query,
     ...deviceHealthResolver.Query,
+    ...deviceResolver.Query,
   },
   Mutation: {
     ...userResolver.Mutation,

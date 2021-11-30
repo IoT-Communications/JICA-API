@@ -1,4 +1,5 @@
 import { ConnectionOptions } from 'typeorm';
+import Device from '../entities/Device';
 import DeviceAlarm from '../entities/DeviceAlarm';
 import DeviceBattery from '../entities/DeviceBattery';
 import DeviceHealth from '../entities/DeviceHealth';
@@ -49,6 +50,7 @@ export const dbconfig: ConnectionOptions = {
         DeviceHealth,
         DeviceBattery,
         DeviceTemperature,
+        Device,
     ],
     dropSchema: false,
     migrations: ['src/migration/**/*.ts'],
